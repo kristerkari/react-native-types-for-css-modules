@@ -2,6 +2,8 @@
 
 [React Native Typescript types](https://www.npmjs.com/package/@types/react-native) with an extra added type: `className` property.
 
+These types should be used together with [React Native CSS modules](https://github.com/kristerkari/react-native-css-modules).
+
 ## Installation
 
 Replace normal `@types/react-native` installation...
