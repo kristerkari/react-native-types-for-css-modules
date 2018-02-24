@@ -25,3 +25,7 @@ If you want a specific version (only versions `>=0.52.4` are supported):
 ```json
 "@types/react-native": "kristerkari/react-native-types-for-css-modules#v0.52.4",
 ```
+
+## Updating new `@types/react-native` versions
+
+To update `className` type to newer `@types/react-native` versions, you can use `ruby update_versions.rb`.
