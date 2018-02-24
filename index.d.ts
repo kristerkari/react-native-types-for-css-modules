@@ -5229,7 +5229,7 @@ export type PlatformOSType = "ios" | "android" | "macos" | "windows" | "web";
 
 interface PlatformStatic {
     OS: PlatformOSType;
-    Version: number;
+    Version: number | string;
 
     /**
      * @see https://facebook.github.io/react-native/docs/platform-specific-code.html#content
@@ -6243,7 +6243,16 @@ export interface ShareStatic {
     dismissedAction: string;
 }
 
-type AccessibilityChangeEventName = "change" | "announcementFinished";
+type AccessibilityEventName = "change" | "announcementFinished";
+
+type AccessibilityChangeEvent = boolean;
+
+type AccessibilityAnnoucementFinishedEvent = {
+    announcement: string;
+    success: boolean
+};
+
+type AccessibilityEvent = AccessibilityChangeEvent | AccessibilityAnnoucementFinishedEvent;
 
 /**
  * @see https://facebook.github.io/react-native/docs/accessibilityinfo.html
@@ -6266,12 +6275,12 @@ export interface AccessibilityInfoStatic {
      *                          - announcement: The string announced by the screen reader.
      *                          - success: A boolean indicating whether the announcement was successfully made.
      */
-    addEventListener: (eventName: AccessibilityChangeEventName, handler: () => void) => void;
+    addEventListener: (eventName: AccessibilityEventName, handler: (event: AccessibilityEvent) => void) => void;
 
     /**
      * Remove an event handler.
      */
-    removeEventListener: (eventName: AccessibilityChangeEventName, handler: () => void) => void;
+    removeEventListener: (eventName: AccessibilityEventName, handler: (event: AccessibilityEvent) => void) => void;
 
     /**
      * Set acessibility focus to a react component.
