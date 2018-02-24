@@ -1,0 +1,21 @@
+{
+  "name": "react-native-types-for-css-modules",
+  "version": "0.52.4",
+  "private": true,
+  "description": "TypeScript definitions for react-native CSS modules",
+  "main": "index.d.ts",
+  "files": [
+    "index.d.ts",
+    "globals.d.ts"
+  ],
+  "dependencies": {
+    "@types/react": "*"
+  },
+  "author": "Krister Kari",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kristerkari/react-native-types-for-css-modules.git"
+  },
+  "typeScriptVersion": "2.3"
+}
