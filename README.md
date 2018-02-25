@@ -1,5 +1,7 @@
 # Typescript types for React Native CSS modules
 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
+
 [React Native Typescript types](https://www.npmjs.com/package/@types/react-native) with an extra added type: `className` property.
 
 These types should be used together with [React Native CSS modules](https://github.com/kristerkari/react-native-css-modules).
