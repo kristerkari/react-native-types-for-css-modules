@@ -24,10 +24,23 @@ newer_versions.each do |v|
   puts "removing existing @types/react native..."
   system("rm -rf node_modules")
 
-  puts "installing @types/react-native@#{v}"
+  puts "installing @types/react-native@#{v}..."
   system("npm install @types/react-native@#{v} --no-save")
+
+  puts "checking for type file names..."
+
+  expected_type_files = ["globals.d.ts", "index.d.ts"]
+  installed_type_files = Dir["./node_modules/@types/react-native/*.d.ts"].map { |f| File.basename(f) }
+
+  if expected_type_files.uniq.sort != installed_type_files.uniq.sort 
+    raise "type files included in @types/react-native has changed. This script needs to be updated.\nNew files are:"
+    puts installed_type_files
+  else 
+    puts "installed @types/react-native type files:"
+    puts installed_type_files
+  end
   
-  puts "replacing current types with @types/react-native@#{v}"
+  puts "replacing current types with @types/react-native@#{v}..."
 
   system("rm globals.d.ts")
   system("cp node_modules/@types/react-native/globals.d.ts globals.d.ts")
@@ -40,7 +53,7 @@ newer_versions.each do |v|
   puts "adding className prop to @types/react-native@#{v}..."
   system("ruby write_classname.rb")
 
-  puts "bump package.json version"
+  puts "bump package.json version..."
   system("npm --no-git-tag-version version patch")
 
   puts "committing v#{v}..."
