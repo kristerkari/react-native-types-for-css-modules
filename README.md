@@ -11,21 +11,21 @@ These types should be used together with [React Native CSS modules](https://gith
 Replace normal `@types/react-native` installation...
 
 ```json
-"@types/react-native": "^0.52.4",
+"@types/react-native": "^0.52.20",
 ```
 
-...with this:
+...with this (only versions `>=0.52.4` are supported):
 
 ```json
-"@types/react-native": "kristerkari/react-native-types-for-css-modules",
+"@types/react-native": "kristerkari/react-native-types-for-css-modules#v0.52.20",
 ```
 
 ...and run `npm install` or `yarn install`.
 
-If you want a specific version (only versions `>=0.52.4` are supported):
+You can also omit the version tag (not recommended):
 
 ```json
-"@types/react-native": "kristerkari/react-native-types-for-css-modules#v0.52.4",
+"@types/react-native": "kristerkari/react-native-types-for-css-modules",
 ```
 
 ## Keeping in sync with new `@types/react-native` versions
