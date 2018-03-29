@@ -1046,10 +1046,12 @@ export type KeyboardTypeIOS =
     | "twitter"
     | "web-search";
 export type KeyboardTypeAndroid = "visible-password";
+export type KeyboardTypeOptions = KeyboardType | KeyboardTypeAndroid | KeyboardTypeIOS
 
 export type ReturnKeyType = "done" | "go" | "next" | "search" | "send";
 export type ReturnKeyTypeAndroid = "none" | "previous";
 export type ReturnKeyTypeIOS = "default" | "google" | "join" | "route" | "yahoo" | "emergency-call";
+export type ReturnKeyTypeOptions = ReturnKeyType | ReturnKeyTypeAndroid | ReturnKeyTypeIOS
 
 /**
  * @see https://facebook.github.io/react-native/docs/textinput.html#props
@@ -1105,7 +1107,7 @@ export interface TextInputProperties
      * The following values work on iOS: - ascii-capable - numbers-and-punctuation - url - number-pad - name-phone-pad - decimal-pad - twitter - web-search
      * The following values work on Android: - visible-password
      */
-    keyboardType?: KeyboardType | KeyboardTypeIOS | KeyboardTypeAndroid;
+    keyboardType?: KeyboardTypeOptions;
 
     /**
      * Limits the maximum number of characters that can be entered.
@@ -1186,7 +1188,7 @@ export interface TextInputProperties
      * enum('default', 'go', 'google', 'join', 'next', 'route', 'search', 'send', 'yahoo', 'done', 'emergency-call')
      * Determines how the return key should look.
      */
-    returnKeyType?: ReturnKeyType | ReturnKeyTypeAndroid | ReturnKeyTypeIOS;
+    returnKeyType?: ReturnKeyTypeOptions;
 
     /**
      * If true, the text input obscures the text entered so that sensitive text like passwords stay secure.
@@ -3310,6 +3312,7 @@ interface ImagePropertiesAndroid {
 /**
  * @see https://facebook.github.io/react-native/docs/image.html
  */
+export type ImagePropertiesSourceOptions = ImageURISource | ImageURISource[] | ImageRequireSource;
 export interface ImageProperties extends ImagePropertiesIOS, ImagePropertiesAndroid, AccessibilityProperties {
     /**
      * onLayout function
@@ -3405,7 +3408,7 @@ export interface ImageProperties extends ImagePropertiesIOS, ImagePropertiesAndr
      * their width and height. The native side will then choose the best `uri` to display
      * based on the measured size of the image container.
      */
-    source: ImageURISource | ImageURISource[] | ImageRequireSource;
+    source: ImagePropertiesSourceOptions;
 
     /**
      * similarly to `source`, this property represents the resource used to render
