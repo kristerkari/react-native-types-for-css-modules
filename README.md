@@ -14,7 +14,7 @@ Replace normal `@types/react-native` installation...
 "@types/react-native": "^0.52.20",
 ```
 
-...with this (only versions `>=0.52.4` are supported):
+...with this (versions `>=0.52.4` are supported):
 
 ```json
 "@types/react-native": "kristerkari/react-native-types-for-css-modules#v0.52.20",
