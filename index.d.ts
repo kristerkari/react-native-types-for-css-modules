@@ -3737,7 +3737,7 @@ export interface SectionListProperties<ItemT> extends VirtualizedListProperties<
     /**
      * Rendered at the very beginning of the list.
      */
-    ListHeaderComponent?: React.ComponentClass<any> | (() => React.ReactElement<any>) | null;
+    ListHeaderComponent?: React.ComponentClass<any> | React.ReactElement<any> | (() => React.ReactElement<any>) | null;
 
     /**
      * Rendered in between each section.
