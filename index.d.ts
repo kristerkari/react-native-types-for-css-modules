@@ -347,7 +347,7 @@ type TaskProvider = () => Task;
 type NodeHandle = number;
 
 // Similar to React.SyntheticEvent except for nativeEvent
-interface NativeSyntheticEvent<T> {
+export interface NativeSyntheticEvent<T> {
     bubbles: boolean;
     cancelable: boolean;
     currentTarget: NodeHandle;
@@ -3546,7 +3546,7 @@ export interface ViewabilityConfig {
  * @see https://facebook.github.io/react-native/docs/flatlist.html#props
  */
 
-interface ListRenderItemInfo<ItemT> {
+export interface ListRenderItemInfo<ItemT> {
     item: ItemT;
 
     index: number;
@@ -3558,7 +3558,7 @@ interface ListRenderItemInfo<ItemT> {
     };
 }
 
-type ListRenderItem<ItemT> = (info: ListRenderItemInfo<ItemT>) => React.ReactElement<any> | null;
+export type ListRenderItem<ItemT> = (info: ListRenderItemInfo<ItemT>) => React.ReactElement<any> | null;
 
 export interface FlatListProperties<ItemT> extends VirtualizedListProperties<ItemT> {
     /**
