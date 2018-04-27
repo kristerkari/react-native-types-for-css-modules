@@ -29,7 +29,7 @@ newer_versions.each do |v|
 
   puts "checking for type file names..."
 
-  expected_type_files = ["globals.d.ts", "index.d.ts"]
+  expected_type_files = ["globals.d.ts", "index.d.ts", "legacy-properties.d.ts"]
   installed_type_files = Dir["./node_modules/@types/react-native/*.d.ts"].map { |f| File.basename(f) }
 
   if expected_type_files.uniq.sort != installed_type_files.uniq.sort
@@ -50,6 +50,10 @@ newer_versions.each do |v|
   system("cp node_modules/@types/react-native/index.d.ts index.d.ts")
   system("tr -d '\r' < node_modules/@types/react-native/index.d.ts > index.d.ts")
 
+  system("rm legacy-properties.d.ts")
+  system("cp node_modules/@types/react-native/legacy-properties.d.ts legacy-properties.d.ts")
+  system("tr -d '\r' < node_modules/@types/react-native/legacy-properties.d.ts > legacy-properties.d.ts")
+
   puts "adding className prop to @types/react-native@#{v}..."
   system("ruby write_classname.rb")
 
@@ -57,7 +61,7 @@ newer_versions.each do |v|
   system("npm --no-git-tag-version version #{v}")
 
   puts "committing v#{v}..."
-  system("git add index.d.ts globals.d.ts package.json")
+  system("git add index.d.ts globals.d.ts legacy-properties.d.ts package.json")
   system("git commit -m v#{v}")
 
   puts "tagging v#{v}..."
