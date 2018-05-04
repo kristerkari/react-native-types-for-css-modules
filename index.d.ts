@@ -3808,14 +3808,6 @@ export interface SectionListData<ItemT> extends SectionBase<ItemT> {
     [key: string]: any;
 }
 
-export interface SectionListScrollParams {
-    animated?: boolean;
-    itemIndex: number;
-    sectionIndex: number;
-    viewOffset?: number;
-    viewPosition?: number;
-}
-
 export interface SectionListProps<ItemT> extends ScrollViewProps {
     /**
      * Rendered in between adjacent Items within each section.
@@ -3924,7 +3916,17 @@ export interface SectionListProps<ItemT> extends ScrollViewProps {
      * Only enabled by default on iOS because that is the platform standard there.
      */
     stickySectionHeadersEnabled?: boolean;
+}
 
+export interface SectionListScrollParams {
+    animated?: boolean;
+    itemIndex: number;
+    sectionIndex: number;
+    viewOffset?: number;
+    viewPosition?: number;
+}
+
+export interface SectionListStatic<SectionT> extends React.ComponentClass<SectionListProps<SectionT>> {
     /**
      * Scrolls to the item at the specified sectionIndex and itemIndex (within the section)
      * positioned in the viewable area such that viewPosition 0 places it at the top
@@ -3932,8 +3934,6 @@ export interface SectionListProps<ItemT> extends ScrollViewProps {
      */
     scrollToLocation?(params: SectionListScrollParams): void;
 }
-
-export interface SectionListStatic<SectionT> extends React.ComponentClass<SectionListProps<SectionT>> {}
 
 /**
  * @see https://facebook.github.io/react-native/docs/virtualizedlist.html#props
