@@ -29,12 +29,11 @@ newer_versions.each do |v|
 
   puts "checking for type file names..."
 
-  expected_type_files = ["globals.d.ts", "index.d.ts", "legacy-properties.d.ts"]
+  expected_type_files = ["globals.d.ts", "index.d.ts", "legacy-properties.d.ts", "BatchedBridge.d.ts"]
   installed_type_files = Dir["./node_modules/@types/react-native/*.d.ts"].map { |f| File.basename(f) }
 
   if expected_type_files.uniq.sort != installed_type_files.uniq.sort
-    raise "type files included in @types/react-native has changed. This script needs to be updated.\nNew files are:"
-    puts installed_type_files
+    raise "type files included in @types/react-native has changed. This script needs to be updated.\nNew files are:\n#{installed_type_files}"
   else
     puts "installed @types/react-native type files:"
     puts installed_type_files
@@ -54,6 +53,10 @@ newer_versions.each do |v|
   system("cp node_modules/@types/react-native/legacy-properties.d.ts legacy-properties.d.ts")
   system("tr -d '\r' < node_modules/@types/react-native/legacy-properties.d.ts > legacy-properties.d.ts")
 
+  system("rm BatchedBridge.d.ts")
+  system("cp node_modules/@types/react-native/BatchedBridge.d.ts BatchedBridge.d.ts")
+  system("tr -d '\r' < node_modules/@types/react-native/BatchedBridge.d.ts > BatchedBridge.d.ts")
+
   puts "adding className prop to @types/react-native@#{v}..."
   system("ruby write_classname.rb")
 
@@ -61,7 +64,7 @@ newer_versions.each do |v|
   system("npm --no-git-tag-version version #{v}")
 
   puts "committing v#{v}..."
-  system("git add index.d.ts globals.d.ts legacy-properties.d.ts package.json")
+  system("git add index.d.ts globals.d.ts legacy-properties.d.ts BatchedBridge.d.ts package.json")
   system("git commit -m v#{v}")
 
   puts "tagging v#{v}..."
