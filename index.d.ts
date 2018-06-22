@@ -1090,10 +1090,11 @@ export interface TextInputFocusEventData {
     eventCount: number;
 }
 
-export interface TextInputScrollEvent {
-    nativeEvent: {
-        contentOffset: { x: number; y: number; }
-    }
+/**
+ * @see TextInputProps.onScroll
+ */
+export interface TextInputScrollEventData {
+    contentOffset: { x: number; y: number; }
 }
 
 /**
@@ -1234,7 +1235,7 @@ export interface TextInputProps
      *
      * May also contain other properties from ScrollEvent but on Android contentSize is not provided for performance reasons.
      */
-    onScroll?: (event: TextInputScrollEvent) => void;
+    onScroll?: (e: NativeSyntheticEvent<TextInputScrollEventData>) => void;
 
     /**
      * The string that will be rendered before text input has been entered
@@ -3455,10 +3456,6 @@ interface ImageLoadEventData extends ImageLoadEventDataAndroid {
     }
 }
 
-export interface ImageLoadEvent {
-    nativeEvent: ImageLoadEventData;
-}
-
 /**
  * @see https://facebook.github.io/react-native/docs/image.html
  */
@@ -3481,7 +3478,7 @@ export interface ImagePropsBase extends ImagePropsIOS, ImagePropsAndroid, Access
      * Invoked when load completes successfully
      * { source: { url, height, width } }.
      */
-    onLoad?: (event: ImageLoadEvent) => void;
+    onLoad?: (event: NativeSyntheticEvent<ImageLoadEventData>) => void;
 
     /**
      * Invoked when load either succeeds or fails
