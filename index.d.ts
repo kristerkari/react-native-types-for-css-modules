@@ -6834,7 +6834,7 @@ export interface BackHandlerStatic {
 
 export interface ButtonProps {
     title: string;
-    onPress: () => any;
+    onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
     color?: string;
     accessibilityLabel?: string;
     disabled?: boolean;
