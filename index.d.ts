@@ -3720,10 +3720,11 @@ export class Image extends ImageBase {
 }
 
 export interface ImageBackgroundProps extends ImagePropsBase {
+    imageStyle?: StyleProp<ImageStyle>;
     style?: StyleProp<ViewStyle>;
 
     className?: string;
-    imageStyle?: StyleProp<ImageStyle>;
+    imageRef?(image: Image): void;
 }
 
 declare class ImageBackgroundComponent extends React.Component<ImageBackgroundProps> {}
