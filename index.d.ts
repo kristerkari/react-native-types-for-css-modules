@@ -4052,7 +4052,7 @@ export interface SectionBase<ItemT> {
 
     key?: string;
 
-    renderItem?: ListRenderItem<ItemT>;
+    renderItem?: SectionListRenderItem<ItemT>;
 
     ItemSeparatorComponent?: React.ComponentClass<any> | (() => React.ReactElement<any>) | null;
 
@@ -4062,6 +4062,16 @@ export interface SectionBase<ItemT> {
 export interface SectionListData<ItemT> extends SectionBase<ItemT> {
     [key: string]: any;
 }
+
+/**
+ * @see https://facebook.github.io/react-native/docs/sectionlist.html#props
+ */
+
+export interface SectionListRenderItemInfo<ItemT> extends ListRenderItemInfo<ItemT> {
+  section: SectionListData<ItemT>;
+}
+
+export type SectionListRenderItem<ItemT> = (info: SectionListRenderItemInfo<ItemT>) => React.ReactElement<any> | null;
 
 export interface SectionListProps<ItemT> extends ScrollViewProps {
     /**
@@ -4166,7 +4176,7 @@ export interface SectionListProps<ItemT> extends ScrollViewProps {
     /**
      * Default renderer for every item in every section. Can be over-ridden on a per-section basis.
      */
-    renderItem?: ListRenderItem<ItemT>;
+    renderItem?: SectionListRenderItem<ItemT>;
 
     /**
      * Rendered at the top of each section. Sticky headers are not yet supported.
@@ -6824,7 +6834,8 @@ export interface AlertIOSStatic {
         message?: string,
         callbackOrButtons?: ((value: string) => void) | Array<AlertIOSButton>,
         type?: AlertType,
-        defaultValue?: string
+        defaultValue?: string,
+        keyboardType?: KeyboardType | KeyboardTypeIOS,
     ) => void;
 }
 
@@ -6881,7 +6892,7 @@ export interface AsyncStorageStatic {
     /**
      * Fetches key and passes the result to callback, along with an Error if there is any.
      */
-    getItem(key: string, callback?: (error?: Error, result?: string) => void): Promise<string>;
+    getItem(key: string, callback?: (error?: Error, result?: string) => void): Promise<string | null>;
 
     /**
      * Sets value for key and calls callback on completion, along with an Error if there is any
