@@ -11,13 +11,13 @@ These types should be used together with [React Native CSS modules](https://gith
 Replace normal `@types/react-native` installation...
 
 ```json
-"@types/react-native": "^0.55.25",
+"@types/react-native": "^0.56.10",
 ```
 
 ...with this (versions `>=0.52.4` are supported):
 
 ```json
-"@types/react-native": "kristerkari/react-native-types-for-css-modules#v0.55.25",
+"@types/react-native": "kristerkari/react-native-types-for-css-modules#v0.56.10",
 ```
 
 ...and run `npm install` or `yarn install`.
