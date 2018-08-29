@@ -6243,6 +6243,11 @@ export interface ScrollViewPropsAndroid {
         *   - 'never' - Never allow a user to over-scroll this view.
         */
     overScrollMode?: "auto" | "always" | "never";
+
+    /**
+     * Enables nested scrolling for Android API level 21+. Nested scrolling is supported by default on iOS.
+     */
+    nestedScrollEnabled?: boolean;
 }
 
 export interface ScrollViewProps
