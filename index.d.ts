@@ -2180,6 +2180,11 @@ Possible values for mixedContentMode are:
      * Controls whether form autocomplete data should be saved
      */
     saveFormDataDisabled?: boolean;
+
+    /**
+     * Sets whether the webview allows access to the file system.
+     */
+    allowFileAccess?: boolean;
 }
 
 export interface WebViewIOSLoadRequestEvent {
