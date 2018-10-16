@@ -2518,7 +2518,7 @@ export interface SegmentedControlIOSProps extends ViewProps {
 /**
  * Renders nested content and automatically applies paddings reflect the portion of the view
  * that is not covered by navigation bars, tab bars, toolbars, and other ancestor views.
- * Moreover, and most importantly, Safe Area's paddings feflect physical limitation of the screen,
+ * Moreover, and most importantly, Safe Area's paddings reflect physical limitation of the screen,
  * such as rounded corners or camera notches (aka sensor housing area on iPhone X).
  */
 declare class SafeAreaViewComponent extends React.Component<ViewProps> {}
@@ -3870,22 +3870,22 @@ export interface FlatListProps<ItemT> extends VirtualizedListProps<ItemT> {
     /**
      * Rendered in between each item, but not at the top or bottom
      */
-    ItemSeparatorComponent?: React.ComponentType<any> | (() => React.ReactElement<any>) | null;
+    ItemSeparatorComponent?: React.ComponentType<any>;
 
     /**
      * Rendered when the list is empty.
      */
-    ListEmptyComponent?: React.ComponentClass<any> | React.ReactElement<any> | (() => React.ReactElement<any>) | null;
+    ListEmptyComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * Rendered at the very end of the list.
      */
-    ListFooterComponent?: React.ComponentClass<any> | React.ReactElement<any> | (() => React.ReactElement<any>) | null;
+    ListFooterComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * Rendered at the very beginning of the list.
      */
-    ListHeaderComponent?: React.ComponentClass<any> | React.ReactElement<any> | (() => React.ReactElement<any>) | null;
+    ListHeaderComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * Optional custom style for multi-item rows generated when numColumns > 1
@@ -4066,7 +4066,7 @@ export interface SectionBase<ItemT> {
 
     renderItem?: SectionListRenderItem<ItemT>;
 
-    ItemSeparatorComponent?: React.ComponentClass<any> | (() => React.ReactElement<any>) | null;
+    ItemSeparatorComponent?: React.ComponentType<any>;
 
     keyExtractor?: (item: ItemT, index: number) => string;
 }
@@ -4089,27 +4089,27 @@ export interface SectionListProps<ItemT> extends VirtualizedListWithoutRenderIte
     /**
      * Rendered in between adjacent Items within each section.
      */
-    ItemSeparatorComponent?: React.ComponentType<any> | null;
+    ItemSeparatorComponent?: React.ComponentType<any>;
 
     /**
      * Rendered when the list is empty.
      */
-    ListEmptyComponent?: React.ComponentClass<any> | React.ReactElement<any> | (() => React.ReactElement<any>) | null;
+    ListEmptyComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * Rendered at the very end of the list.
      */
-    ListFooterComponent?: React.ComponentClass<any> | (() => React.ReactElement<any>) | null;
+    ListFooterComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * Rendered at the very beginning of the list.
      */
-    ListHeaderComponent?: React.ComponentClass<any> | React.ReactElement<any> | (() => React.ReactElement<any>) | null;
+    ListHeaderComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * Rendered in between each section.
      */
-    SectionSeparatorComponent?: React.ComponentClass<any> | (() => React.ReactElement<any>) | null;
+    SectionSeparatorComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * A marker property for telling the list to re-render (since it implements PureComponent).
@@ -4253,19 +4253,19 @@ export interface SectionListStatic<SectionT> extends React.ComponentClass<Sectio
      * Rendered when the list is empty. Can be a React Component Class, a render function, or
      * a rendered element.
      */
-    ListEmptyComponent?: React.ComponentClass<any> | React.ReactElement<any> | (() => React.ReactElement<any>) | null;
+    ListEmptyComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * Rendered at the bottom of all the items. Can be a React Component Class, a render function, or
      * a rendered element.
      */
-    ListFooterComponent?: React.ComponentClass<any> | React.ReactElement<any> | (() => React.ReactElement<any>) | null;
+    ListFooterComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * Rendered at the top of all the items. Can be a React Component Class, a render function, or
      * a rendered element.
      */
-    ListHeaderComponent?: React.ComponentClass<any> | React.ReactElement<any> | (() => React.ReactElement<any>) | null;
+    ListHeaderComponent?: React.ComponentType<any> | React.ReactElement<any>;
 
     /**
      * The default accessor functions assume this is an Array<{key: string}> but you can override
