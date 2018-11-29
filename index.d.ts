@@ -8211,6 +8211,13 @@ export interface SwitchProps extends SwitchPropsIOS {
      * Default value is false.
      */
     value?: boolean;
+
+     /**
+     * On iOS, custom color for the background.
+     * Can be seen when the switch value is false or when the switch is disabled.
+     */
+    ios_backgroundColor?: string;
+
     style?: StyleProp<ViewStyle>;
 
     className?: string;
