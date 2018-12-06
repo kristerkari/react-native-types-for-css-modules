@@ -22,7 +22,7 @@ Replace normal `@types/react-native` installation...
 "@types/react-native": "kristerkari/react-native-types-for-css-modules#v0.57.17",
 ```
 
-...and run `npm install` or `yarn install`.
+...and run `yarn install`.
 
 You can also omit the version tag (not recommended):
 
