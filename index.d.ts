@@ -4135,6 +4135,11 @@ export class FlatList<ItemT> extends React.Component<FlatListProps<ItemT>> {
      * by taps on items or by navigation actions.
      */
     recordInteraction: () => void;
+
+    /**
+     * Displays the scroll indicators momentarily.
+     */
+    flashScrollIndicators: () => void;
 }
 
 /**
