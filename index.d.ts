@@ -9335,7 +9335,9 @@ export const PointPropType: React.Validator<PointPropType>;
 export const ViewPropTypes: React.ValidationMap<ViewProps>;
 
 declare global {
-    function require(name: string): any;
+    type ReactNativeRequireFunction = (name: string) => any;
+
+    var require: ReactNativeRequireFunction;
 
     /**
      * Console polyfill
@@ -9353,7 +9355,7 @@ declare global {
         ignoredYellowBox: string[];
     }
 
-    const console: Console;
+    var console: Console;
 
     /**
      * Navigator object for accessing location API
