@@ -6912,6 +6912,7 @@ export interface ActionSheetIOSOptions {
     cancelButtonIndex?: number;
     destructiveButtonIndex?: number;
     message?: string;
+    anchor?: number;
     tintColor?: string;
 }
 
