@@ -20,6 +20,7 @@
 //                 Saransh Kataria <https://github.com/saranshkataria>
 //                 Francesco Moro <https://github.com/franzmoro>
 //                 Wojciech Tyczynski <https://github.com/tykus160>
+//                 Jake Bloom <https://github.com/jakebloom>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -7741,6 +7742,10 @@ export interface ConnectionInfo {
     effectiveType: EffectiveConnectionType;
 }
 
+interface NetInfoEventListener {
+    remove: () => void;
+}
+
 export interface NetInfoStatic {
     /**
      * This function is deprecated. Use `getConnectionInfo` instead. Returns a promise that
@@ -7759,7 +7764,7 @@ export interface NetInfoStatic {
      *   the network status changes. The argument to the event handler is one of the deprecated
      *   connectivity types listed above.
      */
-    addEventListener: (eventName: string, listener: (result: ConnectionInfo | ConnectionType) => void) => void;
+    addEventListener: (eventName: string, listener: (result: ConnectionInfo | ConnectionType) => void) => NetInfoEventListener;
 
     /**
      * Removes the listener for network status changes.
@@ -7785,7 +7790,7 @@ export interface NetInfoStatic {
         /**
          * eventName is expected to be `change`(deprecated) or `connectionChange`
          */
-        addEventListener: (eventName: string, listener: (result: boolean) => void) => void;
+        addEventListener: (eventName: string, listener: (result: boolean) => void) => NetInfoEventListener;
 
         /**
          * eventName is expected to be `change`(deprecated) or `connectionChange`
