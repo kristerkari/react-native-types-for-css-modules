@@ -29,7 +29,7 @@ newer_versions.each do |v|
 
   puts "checking for type file names..."
 
-  expected_type_files = ["globals.d.ts", "index.d.ts", "legacy-properties.d.ts", "BatchedBridge.d.ts", "Devtools.d.ts"]
+  expected_type_files = ["LaunchScreen.d.ts", "globals.d.ts", "index.d.ts", "legacy-properties.d.ts", "BatchedBridge.d.ts", "Devtools.d.ts"]
   installed_type_files = Dir["./node_modules/@types/react-native/*.d.ts"].map { |f| File.basename(f) }
 
   if expected_type_files.uniq.sort != installed_type_files.uniq.sort
@@ -40,6 +40,10 @@ newer_versions.each do |v|
   end
 
   puts "replacing current types with @types/react-native@#{v}..."
+
+  system("rm LaunchScreen.d.ts")
+  system("cp node_modules/@types/react-native/LaunchScreen.d.ts LaunchScreen.d.ts")
+  system("tr -d '\r' < node_modules/@types/react-native/LaunchScreen.d.ts > LaunchScreen.d.ts")
 
   system("rm globals.d.ts")
   system("cp node_modules/@types/react-native/globals.d.ts globals.d.ts")
