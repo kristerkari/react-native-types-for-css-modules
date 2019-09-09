@@ -8250,6 +8250,8 @@ export interface StatusBarPropsIOS {
 export interface StatusBarPropsAndroid {
     /**
      * The background color of the status bar.
+     *
+     * @platform android
      */
     backgroundColor?: string;
 
