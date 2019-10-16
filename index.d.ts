@@ -4607,7 +4607,7 @@ export class MaskedViewIOS extends MaskedViewBase {}
 
 export interface ModalBaseProps {
     /**
-     * @deprecated Use animationType indead
+     * @deprecated Use animationType instead
      */
     animated?: boolean;
     /**
