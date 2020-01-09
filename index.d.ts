@@ -26,6 +26,7 @@
 //                 Romain Faust <https://github.com/romain-faust>
 //                 Be Birchall <https://github.com/bebebebebe>
 //                 Jesse Katsumata <https://github.com/Naturalclar>
+//                 Xianming Zhong <https://github.com/chinesedfan>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -8891,7 +8892,7 @@ export function findNodeHandle(
 
 export function processColor(color: any): number;
 
-export const YellowBox: React.Component<any, any> & { ignoreWarnings: (warnings: string[]) => void };
+export const YellowBox: React.ComponentClass<any, any> & { ignoreWarnings: (warnings: string[]) => void };
 
 //////////////////////////////////////////////////////////////////////////
 //
