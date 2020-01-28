@@ -2966,7 +2966,7 @@ export interface PickerProps extends PickerPropsIOS, PickerPropsAndroid {
      */
     selectedValue?: any;
 
-    style?: StyleProp<ViewStyle>;
+    style?: StyleProp<TextStyle>;
 
     className?: string;
 
