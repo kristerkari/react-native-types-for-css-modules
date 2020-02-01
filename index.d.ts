@@ -3010,7 +3010,7 @@ export class Picker extends React.Component<PickerProps> {
      */
     static MODE_DROPDOWN: string;
 
-    static Item: React.Component<PickerItemProps>;
+    static Item: React.ComponentType<PickerItemProps>;
 }
 
 /**
