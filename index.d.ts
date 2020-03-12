@@ -5209,7 +5209,7 @@ export namespace StyleSheet {
      * their respective objects, merged as one and then returned. This also explains
      * the alternative use.
      */
-    export function flatten<T>(style?: StyleProp<T>): T;
+    export function flatten<T>(style?: StyleProp<T>): T extends (infer U)[] ? U : T;
 
     /**
      * Combines two styles such that style2 will override any styles in style1.
