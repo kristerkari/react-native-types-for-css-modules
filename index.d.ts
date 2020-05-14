@@ -9339,6 +9339,8 @@ export const ColorPropType: React.Validator<string>;
 export const EdgeInsetsPropType: React.Validator<Insets>;
 export const PointPropType: React.Validator<PointPropType>;
 export const ViewPropTypes: React.ValidationMap<ViewProps>;
+export const TextPropTypes: React.ValidationMap<TextProps>;
+export const ImagePropTypes: React.ValidationMap<ImageProps>;
 
 declare global {
     interface NodeRequire {
