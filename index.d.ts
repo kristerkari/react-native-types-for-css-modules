@@ -8626,8 +8626,6 @@ declare const _View: typeof View;
 declare const _Image: typeof Image;
 declare const _Text: typeof Text;
 declare const _ScrollView: typeof ScrollView;
-declare const _FlatList: typeof FlatList;
-declare const _SectionList: typeof SectionList;
 export namespace Animated {
     type AnimatedValue = Value;
     type AnimatedValueXY = ValueXY;
@@ -8990,7 +8988,7 @@ export namespace Animated {
             : {});
 
     export interface AnimatedComponent<T extends React.ComponentType<any>>
-        extends React.FC<AnimatedProps<React.ComponentPropsWithRef<T>>> {}
+        extends React.FC<ComponentProps<T> | AnimatedProps<React.ComponentPropsWithRef<T>>> {}
 
     /**
      * Make any React component Animatable.  Used to create `Animated.View`, etc.
@@ -9005,8 +9003,12 @@ export namespace Animated {
     export const Image: AnimatedComponent<typeof _Image>;
     export const Text: AnimatedComponent<typeof _Text>;
     export const ScrollView: AnimatedComponent<typeof _ScrollView>;
-    export const FlatList: AnimatedComponent<typeof _FlatList>;
-    export const SectionList: AnimatedComponent<typeof _SectionList>;
+
+    /**
+     * FlatList and SectionList infer generic Type defined under their `data` and `section` props.
+     */
+    export class FlatList<ItemT = any> extends React.Component<FlatListProps<ItemT> | AnimatedProps<FlatListProps<ItemT>>> {}
+    export class SectionList<SectionT = any> extends React.Component<SectionListProps<SectionT> | AnimatedProps<SectionListProps<SectionT>>> {}
 }
 
 // tslint:disable-next-line:interface-name
