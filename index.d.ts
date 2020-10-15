@@ -6866,7 +6866,7 @@ export class ScrollView extends ScrollViewBase {
      * implement this method so that they can be composed while providing access
      * to the underlying scroll responder's methods.
      */
-    getScrollResponder(): JSX.Element;
+    getScrollResponder(): ScrollResponderMixin;
 
     getScrollableNode(): any;
 
