@@ -8884,7 +8884,7 @@ export namespace Animated {
          *  }}
          *```
          */
-        getTranslateTransform(): { [key: string]: AnimatedValue }[];
+        getTranslateTransform(): [{ translateX: AnimatedValue }, { translateY: AnimatedValue }];
     }
 
     type EndResult = { finished: boolean };
