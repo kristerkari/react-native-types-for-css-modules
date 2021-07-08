@@ -4055,6 +4055,11 @@ export interface ImagePropsBase extends ImagePropsIOS, ImagePropsAndroid, Access
     testID?: string;
 
     /**
+     * Used to reference react managed images from native code.
+     */
+    nativeID?: string;
+
+    /**
      * A static image to display while downloading the final image off the network.
      */
     defaultSource?: ImageURISource | number;
@@ -7037,6 +7042,10 @@ export interface NativeScrollEvent {
     layoutMeasurement: NativeScrollSize;
     velocity?: NativeScrollVelocity;
     zoomScale: number;
+    /**
+     * @platform ios
+     */
+    targetContentOffset?: NativeScrollPoint;
 }
 
 export interface SnapshotViewIOSProps extends ViewProps {
