@@ -3960,7 +3960,7 @@ export interface ImagePropsBase extends ImagePropsIOS, ImagePropsAndroid, Access
 
     /**
      * Invoked when load completes successfully
-     * { source: { url, height, width } }.
+     * { source: { uri, height, width } }.
      */
     onLoad?: (event: NativeSyntheticEvent<ImageLoadEventData>) => void;
 
