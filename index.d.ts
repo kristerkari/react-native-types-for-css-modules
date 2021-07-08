@@ -4160,7 +4160,7 @@ export interface FlatListProps<ItemT> extends VirtualizedListProps<ItemT> {
     /**
      * Styling for internal View for ListFooterComponent
      */
-    ListFooterComponentStyle?: ViewStyle | null;
+    ListFooterComponentStyle?: StyleProp<ViewStyle>;
 
     /**
      * Rendered at the very beginning of the list.
@@ -4170,7 +4170,7 @@ export interface FlatListProps<ItemT> extends VirtualizedListProps<ItemT> {
     /**
      * Styling for internal View for ListHeaderComponent
      */
-    ListHeaderComponentStyle?: ViewStyle | null;
+    ListHeaderComponentStyle?: StyleProp<ViewStyle>;
 
     /**
      * Optional custom style for multi-item rows generated when numColumns > 1
@@ -8635,12 +8635,12 @@ export interface SwitchProps extends SwitchPropsIOS {
     /**
      * Invoked with the the change event as an argument when the value changes.
      */
-    onChange?: ((event?: SwitchChangeEvent) => Promise<void> | void) | null;
+    onChange?: ((event: SwitchChangeEvent) => Promise<void> | void) | null;
 
     /**
      * Invoked with the new value when the value changes.
      */
-    onValueChange?: ((value?: boolean) => Promise<void> | void) | null;
+    onValueChange?: ((value: boolean) => Promise<void> | void) | null;
 
     /**
      * Used to locate this view in end-to-end tests.
