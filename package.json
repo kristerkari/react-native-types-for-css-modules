@@ -1,6 +1,6 @@
 {
   "name": "react-native-types-for-css-modules",
-  "version": "0.63.49",
+  "version": "0.63.50",
   "private": true,
   "description": "TypeScript definitions for react-native CSS modules",
   "main": "index.d.ts",
