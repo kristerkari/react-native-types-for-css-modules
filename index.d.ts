@@ -361,7 +361,7 @@ export interface HostComponent<P> extends Pick<React.ComponentClass<P>, Exclude<
 
 // see react-jsx.d.ts
 export function createElement<P>(
-    type: React.ElementType,
+    type: React.ReactType,
     props?: P,
     ...children: React.ReactNode[]
 ): React.ReactElement<P>;
