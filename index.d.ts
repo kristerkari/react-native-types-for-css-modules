@@ -7383,7 +7383,7 @@ export type BackPressEventName = 'hardwareBackPress';
  * returns true then subscriptions registered earlier
  * will not be called.
  *
- * @see https://reactnative.dev/docs/backhandler.html
+ * @see https://reactnative.dev/docs/backhandler
  */
 export interface BackHandlerStatic {
     exitApp(): void;
