@@ -1,4 +1,4 @@
-// Type definitions for react-native 0.66
+// Type definitions for react-native 0.67
 // Project: https://github.com/facebook/react-native
 // Definitions by: Eloy Durán <https://github.com/alloy>
 //                 HuHuanming <https://github.com/huhuanming>
@@ -40,7 +40,6 @@
 //                 Arafat Zahan <https://github.com/kuasha420>
 //                 Pedro Hernández <https://github.com/phvillegas>
 //                 Sebastian Silbermann <https://github.com/eps1lon>
-//                 Zihan Chen <https://github.com/ZihanChen-MSFT>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
@@ -990,8 +989,7 @@ export interface TextPropsAndroid {
         | 'normal'
         | 'none'
         | 'full'
-        | 'high'
-        | 'balanced' | undefined;
+        | undefined;
 }
 
 // https://reactnative.dev/docs/text#props
@@ -9189,19 +9187,6 @@ export interface ImageStoreStatic {
      * base64 data.
      */
     getBase64ForTag(uri: string, success: (base64ImageData: string) => void, failure: (error: any) => void): void;
-}
-
-//
-// Turbo Module
-//
-
-export interface TurboModule {
-    getConstants?(): {}
-}
-
-export const TurboModuleRegistry: {
-    get<T extends TurboModule>(name: string): T | null;
-    getEnforcing<T extends TurboModule>(name: string): T;
 }
 
 //
