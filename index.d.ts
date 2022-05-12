@@ -540,6 +540,11 @@ export interface PressableProps extends AccessibilityProps, Omit<ViewProps, 'chi
     style?: StyleProp<ViewStyle> | ((state: PressableStateCallbackType) => StyleProp<ViewStyle>) | undefined;
 
     className?: string;
+
+    /**
+     * Duration (in milliseconds) to wait after press down before calling onPressIn.
+     */
+    unstable_pressDelay?: number
 }
 
 // TODO use React.AbstractComponent when available
