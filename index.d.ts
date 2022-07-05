@@ -34,6 +34,7 @@
 //                 David Sheldrick <https://github.com/ds300>
 //                 Natsathorn Yuthakovit <https://github.com/natsathorn>
 //                 ConnectDotz <https://github.com/connectdotz>
+//                 Marcel Lasaj <https://github.com/TheWirv>
 //                 Alexey Molchan <https://github.com/alexeymolchan>
 //                 Alex Brazier <https://github.com/alexbrazier>
 //                 Arafat Zahan <https://github.com/kuasha420>
@@ -6362,12 +6363,6 @@ export interface ScrollViewPropsIOS {
      * The default value is true.
      */
     automaticallyAdjustContentInsets?: boolean | undefined; // true
-
-    /**
-     * Controls whether the ScrollView should automatically adjust its `contentInset`
-     * and `scrollViewInsets` when the Keyboard changes its size. The default value is false.
-     */
-    automaticallyAdjustKeyboardInsets?: boolean | undefined;
 
     /**
      * Controls whether iOS should automatically adjust the scroll indicator
