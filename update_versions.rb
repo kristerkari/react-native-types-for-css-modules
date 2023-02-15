@@ -29,7 +29,7 @@ newer_versions.each do |v|
 
   puts "checking for type file names..."
 
-  expected_type_files = ["LaunchScreen.d.ts", "globals.d.ts", "index.d.ts", "legacy-properties.d.ts", "BatchedBridge.d.ts", "Devtools.d.ts", "Codegen.d.ts"]
+  expected_type_files = ["index.d.ts"]
   installed_type_files = Dir["./node_modules/@types/react-native/*.d.ts"].map { |f| File.basename(f) }
 
   if expected_type_files.uniq.sort != installed_type_files.uniq.sort
@@ -41,33 +41,25 @@ newer_versions.each do |v|
 
   puts "replacing current types with @types/react-native@#{v}..."
 
-  system("rm LaunchScreen.d.ts")
-  system("cp node_modules/@types/react-native/LaunchScreen.d.ts LaunchScreen.d.ts")
-  system("tr -d '\r' < node_modules/@types/react-native/LaunchScreen.d.ts > LaunchScreen.d.ts")
+  system("rm -rf Libraries")
+  system("mkdir Libraries")
+  system("cp -R node_modules/@types/react-native/Libraries/ Libraries/")
 
-  system("rm globals.d.ts")
-  system("cp node_modules/@types/react-native/globals.d.ts globals.d.ts")
-  system("tr -d '\r' < node_modules/@types/react-native/globals.d.ts > globals.d.ts")
+  system("rm -rf modules")
+  system("mkdir modules")
+  system("cp -R node_modules/@types/react-native/modules/ modules/")
+
+  system("rm -rf private")
+  system("mkdir private")
+  system("cp -R node_modules/@types/react-native/private/ private/")
+
+  system("rm -rf public")
+  system("mkdir public")
+  system("cp -R node_modules/@types/react-native/public/ public/")
 
   system("rm index.d.ts")
   system("cp node_modules/@types/react-native/index.d.ts index.d.ts")
   system("tr -d '\r' < node_modules/@types/react-native/index.d.ts > index.d.ts")
-
-  system("rm legacy-properties.d.ts")
-  system("cp node_modules/@types/react-native/legacy-properties.d.ts legacy-properties.d.ts")
-  system("tr -d '\r' < node_modules/@types/react-native/legacy-properties.d.ts > legacy-properties.d.ts")
-
-  system("rm BatchedBridge.d.ts")
-  system("cp node_modules/@types/react-native/BatchedBridge.d.ts BatchedBridge.d.ts")
-  system("tr -d '\r' < node_modules/@types/react-native/BatchedBridge.d.ts > BatchedBridge.d.ts")
-
-  system("rm Devtools.d.ts")
-  system("cp node_modules/@types/react-native/Devtools.d.ts Devtools.d.ts")
-  system("tr -d '\r' < node_modules/@types/react-native/Devtools.d.ts > Devtools.d.ts")
-
-  system("rm Codegen.d.ts")
-  system("cp node_modules/@types/react-native/Codegen.d.ts Codegen.d.ts")
-  system("tr -d '\r' < node_modules/@types/react-native/Codegen.d.ts > Codegen.d.ts")
 
   puts "adding className prop to @types/react-native@#{v}..."
   system("ruby write_classname.rb")
@@ -76,7 +68,7 @@ newer_versions.each do |v|
   system("npm --no-git-tag-version version #{v}")
 
   puts "committing v#{v}..."
-  system("git add index.d.ts globals.d.ts legacy-properties.d.ts BatchedBridge.d.ts Devtools.d.ts Codegen.d.ts package.json")
+  system("git add index.d.ts Libraries modules private public package.json")
   system("git commit -m v#{v}")
 
   puts "tagging v#{v}..."

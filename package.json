@@ -6,8 +6,10 @@
   "main": "index.d.ts",
   "files": [
     "index.d.ts",
-    "globals.d.ts",
-    "BatchedBridge.d.ts"
+    "Libraries",
+    "modules",
+    "private",
+    "public"
   ],
   "dependencies": {
     "@types/react": "*"
