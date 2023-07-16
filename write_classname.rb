@@ -1,2 +1,4 @@
-modified = `ruby add_classname.rb index.d.ts`
-File.open("index.d.ts", 'w') {|f| f.write(modified.gsub(/\r\n?/,"\n")); f.close }
+Dir["**/*.d.ts"].each{|d|
+    modified = `ruby add_classname.rb #{d}`
+    File.open(d, 'w') {|f| f.write(modified.gsub(/\r\n?/,"\n")); f.close }
+}
